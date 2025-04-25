@@ -1,8 +1,7 @@
 #include "Simulador.hpp"
 #include <iostream>
 
-int main() 
-{
+int main() {
     try 
     {
         Simulador simulador;
@@ -12,8 +11,7 @@ int main()
     } 
     catch (const std::exception& e)
     {
-        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr << "Erro: " << e.what() << std::endl;
         return 1;
     }
 }
-

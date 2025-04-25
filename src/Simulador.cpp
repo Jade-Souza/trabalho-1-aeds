@@ -3,7 +3,7 @@
 #include <fstream>
 #include <iostream>
 
-Simulador::Simulador() { this->iteracao = 0; }
+Simulador::Simulador(){ this -> iteracao = 0; }
 
 void Simulador::carregarConfiguracao(const std::string& arquivoEntrada)
 {
@@ -13,27 +13,29 @@ void Simulador::carregarConfiguracao(const std::string& arquivoEntrada)
     output.close();
 }
 
-void Simulador::executarSimulacao()
+void Simulador::executarSimulacao() 
 {
     while (iteracao < MAX_ITERACOES && floresta.incendioAtivo())
     {
-        std::cout << "\n--- ITERACAO " << iteracao << " ---" << std::endl;
-        animal.mover(floresta.getMatriz());
-        animal.aplicarEfeitos(floresta.getMatriz());
-    
-        auto pos = animal.getPosicao();
-        if (floresta.getMatriz()[pos.first][pos.second] == 2 && animal.estaVivo())
-        {
-            animal.mover(floresta.getMatriz());
-            animal.aplicarEfeitos(floresta.getMatriz());
-        }
-    
+        std::cout << "\n--- ITERAÇÃO " << iteracao << " ---" << std::endl;
+        
+        animal.mover(floresta.getMatriz(), iteracao);
+        floresta.aplicarEfeitoAnimal(animal.getPosicao());
         floresta.propagarIncendio();
+        
+        auto pos = animal.getPosicao();
+        if (floresta.getMatriz()[pos.first][pos.second] == 2 && animal.estaVivo()) 
+        {
+            std::cout << "ANIMLA EM PERIGO! TENTANDO FUGIR NOVAMENTE..." << std::endl;
+            animal.mover(floresta.getMatriz(), iteracao);
+            floresta.aplicarEfeitoAnimal(animal.getPosicao());
+        }
+        
         floresta.imprimir();
-        floresta.salvarNoArquivo("output.dat", iteracao);
+        floresta.salvarNoArquivo("output.dat", iteracao);     
         iteracao++;
         
-        if (!animal.estaVivo()) break;
+        if (!animal.estaVivo()){ break; }
     }
     
     gerarRelatorioFinal("output.dat");
@@ -43,14 +45,13 @@ void Simulador::gerarRelatorioFinal(const std::string& arquivoSaida) const
 {
     std::ofstream output(arquivoSaida, std::ios::app);
     
-    output << "\n=== RELATORIO FINAL ===\n";
-    output << "TOTAL DE ITERACOES: " << iteracao << "\n";
+    output << "\n=== RELATÓRIO FINAL ===\n";
+    output << "TOTAL DE ITERAÇOES: " << iteracao << "\n";
     output << "PASSOS DO ANIMAL: " << animal.getPassos() << "\n";
     output << "ENCONTROS COM AGUA: " << animal.getEncontroAgua() << "\n";
     
-    if (animal.estaVivo())
-    { output << "STATUS: ANIMAL SOBREVIVEU!\n"; } 
-    else { output << "STATUS: ANIMAL MORREU NA ITERACAO " << animal.getItMorte() << "\n"; }
+    if (animal.estaVivo()) { output << "STATUS: ANIMAL SOBREVIVEL!\n"; } 
+    else { output << "STATUS: ANIMAL MORREU NA ITERAÇAO! " << animal.getItMorte() << "\n"; }
     
     output << "FIM...\n";
 }

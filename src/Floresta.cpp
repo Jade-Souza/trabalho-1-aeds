@@ -150,8 +150,7 @@ void Floresta::imprimir() const
     std::cout << "\n";
 }
 
+std::vector<std::vector<int>>& Floresta::getMatriz(){return this->matriz;}
 std::pair<int, int> Floresta::getIncendioInicial() const {return this->incendioInicial;}
 int Floresta::getLinha() const { return this -> linha;}
 int Floresta::getColuna() const {return this -> coluna;}
-std::vector<std::vector<int>>& Floresta::getMatriz() {return this->matriz;}
-const std::vector<std::vector<int>>& Floresta::getMatriz() const {return this->matriz;}

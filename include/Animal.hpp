@@ -10,15 +10,16 @@ class Animal
         std::pair<int, int> posicao;
         int passos;
         int EncontroAgua;
-        int ItMorte; 
+        int ItMorte;
         bool vivo;
         int TpAreaSegura;
+        int iteracao; 
 
     public:
         Animal();
-        
+
         void encontrarPosicaoInicial(const std::vector<std::vector<int>>& matriz);
-        void mover(std::vector<std::vector<int>>& matriz);
+        void mover(std::vector<std::vector<int>>& matriz, int iteracao);
         void aplicarEfeitos(std::vector<std::vector<int>>& matriz);
         
         bool estaVivo() const;
@@ -26,7 +27,8 @@ class Animal
         int getEncontroAgua() const;
         int getItMorte() const;
         std::pair<int, int> getPosicao() const;
-        
+        void setIteracao(int iter);      
 };
+
 
 #endif
