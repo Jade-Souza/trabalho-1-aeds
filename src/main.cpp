@@ -1,7 +1,8 @@
 #include "Simulador.hpp"
 #include <iostream>
 
-int main() {
+int main()
+{
     try 
     {
         Simulador simulador;

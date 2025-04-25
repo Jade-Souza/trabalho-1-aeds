@@ -13,7 +13,8 @@ Floresta::Floresta()
 
 void Floresta::setCelula(int x, int y, int valor)
 {
-    if (x >= 0 && x < this->linha && y >= 0 && y < this->coluna) {
+    if (x >= 0 && x < this->linha && y >= 0 && y < this->coluna) 
+    {
         this->matriz[x][y] = valor;
     }
 }
