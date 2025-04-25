@@ -28,7 +28,7 @@ representar a área que ocorrerá o incêndio. Cada pedacinho desse mapa pode es
 
 #  . METODOLOGIA
 
-###  1 - main.cpp
+###  main.cpp
 
  - Bloco try:
    - É nesse bloco onde a gente tenta rodar um código que pode dar errado. Se tudo dê certo, a simulação acontece normalmente. Mas se acontecer algum problema, tipo o arquivo não existir, ele vai para o catch.
@@ -40,7 +40,29 @@ representar a área que ocorrerá o incêndio. Cada pedacinho desse mapa pode es
  
  Se der algum erro durante o carregamento do arquivo ou durante a simulação, o programa não trava. Ele mostra a mensagem de erro com o "e.what()".
 
-# 5 . COMO EXECUTAR
+ ###  Simulador.cpp
+  #### carregarConfiguracao():
+
+  - Linha 10: A função *carregarArquivo* da classe Floresta é chamada. Ela vai carregar os dados da floresta a partir do arquivo fornecido (arquivoEntrada).
+  - Linha 11: Aqui chama a  função *encontrarPosicaoInicial* da classe Animal encontra a posição inicial do animal na floresta.
+  - Linha 12: Aqui o arquivo "output.dat" é aberto em modo truncado "std::ios::trunc", ou seja, o conteúdo do arquivo anterior será apagado, caso exista. Este arquivo será usado para salvar os dados da simulação.
+  -Linha 13: O arquivo é fechado.
+
+  #### executarSimulacao()
+
+  - Linha 17: O laço de repetição while será executando enquando satisfazer as duas condições: a quantidade de iterações não ultrapassar MAX_ITERACOES e o incêndio na floresyta ainda estiver ativo.
+  -Linha 22: O método mover da classe Animal é chamado para mover o animal de acordo com a matriz da floresta e o número da iteração.
+  - Linha 23:
+  -Linha 24: 
+
+
+
+
+
+
+
+
+# 5  COMO EXECUTAR
 
 Será necessario usar o make fornecido:
 
