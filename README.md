@@ -19,12 +19,12 @@ DISCIPLINA: ALGORITIMOS E ESTRUTURAS DE DADOS I
 5 . COMPILAÇÃO
 
 
-# 1 . INTRODUÇÃO
+# 1. INTRODUÇÃO
 
 Esse trabalho tem como objetivo simular como um incêndio se espalha numa floresta, usando um mapa/matriz para
 representar a área que ocorrerá o incêndio. Cada pedacinho desse mapa pode estar de um jeito: com árvores boas, pegando fogo, já queimadas, sem nada ou com água. A simulação vai levar em conta como o fogo se move, até memso se o vento estiver soprando. Também vamos colocar um animal correndo para escapar do fogo, procurando o caminho mais seguro.
 
-#  . METODOLOGIA
+# 2. METODOLOGIA
 
 ### Animal.cpp  < a href "https://github.com/Jade-Souza/trabalho-1-aeds/blob/main/src/Animal.cpp">
 
@@ -225,7 +225,7 @@ O main() é o ponto de entrada do programa.
   - Depois disso, o programa retorna 1, indicando que terminou por causa de um problema.
 
 
-# 3 - RESULTADOS
+# 3. RESULTADOS
 
   ## ITERAÇÕES COM A INFLUÊNCIA DO VENTO:
 
@@ -233,13 +233,172 @@ O main() é o ponto de entrada do programa.
 
   <img src="imagem/comvento-it0.png" />
 
+- O que acontece:
+
+   - O fogo inicial está em (1,1).
+   - O animal está em (5,0) (posição segura).
+   - O fogo começa a se espalhar para direita,devido ao vento.
+   - O animal ainda está longe do fogo e não precisa se mover.
+
+- ITERAÇÃO 1:
+
+<img src="imagem/comvento-it1.png" />
+
+- O que acontece:
+
+  - O fogo espalhou para a direita em várias posições.
+  - Começaram a surgir novos focos de fogo.
+  - O animal anda para a direita, para (5,1), buscando continuar seguro.
+
+- ITERAÇÃO 2:
+
+<img src="imagem/comvento-it2.png" />
+
+- O que acontece:
+
+  - O fogo continuou se espalhando para a direita.
+  - Cada vez mais árvores ficam queimadas.
+  - O animal anda novamente para a direita, agora para (5,2).
+
+- ITERAÇÃO 3:
+
+<img src="imagem/comvento-it3.png" />
+
+- O que acontece:
+
+  - O fogo já domina toda a parte de cima da floresta.
+  - O animal  permanece em (5,2), pois ainda está seguro (em uma área vazia).
+
+- ITERAÇÃO 4:
+
+<img src="imagem/comvento-it4.png" />
+
+- O que acontece:
+
+  - O fogo continua indo para a direita .
+  - As árvores queimadas aumentam muito.
+  - O animal ainda consegue se manter seguro em (5,2), esperando.
+
+- ITERAÇÃO 5:
+
+<img src="imagem/comvento-it5.png" />
+
+- O que acontece:
+
+  - O fogo chegou perigosamente perto da linha 5 (última linha).
+  - O animal precisa se mover rapidamente para não ser atingido.
+  - O animal anda para (5,4), uma posição segura (1) que virou segura por necessidade.
+
+- ITERAÇÃO 6:
+
+<img src="imagem/comvento-it6.png" />
+
+- O que acontece:
+
+  - O fogo domina todo o mapa agora.
+  - O animal se mantém no quadrante (5,4).
+  - Está cercado de áreas queimadas, mas ainda tem um espaço seguro.
+
+- ITERAÇÃO 7:
+
+<img src="imagem/comvento-it7.png" />
+
+- O que acontece:
+
+  - Toda a floresta foi queimada.
+  - O animal sobreviveu, permanecendo numa área segura até o fim
+
+  ## ITERAÇÕES SEM A INFLUÊNCIA DO VENTO:  
+
+- ITERAÇÃO 0:
+
+<img src="imagem/semvento-it0.png" />
+
+- O que acontece:
+
+  - Fogo começa em (1,1).
+  - Animal em (5,0).
+
+- ITERAÇÃO 1:
+
+<img src="imagem/semovento-it1.png" /> 
+
+- ITERAÇÃO 2:
+
+<img src="imagem/semovento-it2.png" /> 
+
+- O que acontece:
+  - Animal move para (5,2).
+  - O fogo continua se espalhando.
+  - E as árvores que antes eram saudavel agora estão queimadas.
+
+- ITERAÇÃO 3:
+
+<img src="imagem/semovento-it3.png" /> 
+
+- O que acontece:
+  - Animal move para (5,3).
+  - O fogo continua se espalhando.
+  - E as árvores que antes eram saudavel agora estão queimadas.
+
+- ITERAÇÃO 4:
+
+<img src="imagem/semovento-it4.png" /> 
+
+- O que acontece:
+  - Animal move para (5,4).
+  - O fogo continua se espalhando.
+  - E as árvores que antes eram saudavel agora estão queimadas.
+
+- ITERAÇÃO 5:
+
+<img src="imagem/semovento-it5.png" /> 
+
+- O que acontece:
+  - Animal move para (5,5), continua numa posição segura.
+  - O fogo continua se espalhando.
+  - E as árvores que antes eram saudavel agora estão queimadas.
+
+- ITERAÇÃO 6:
+
+<img src="imagem/semovento-it6.png" />
+
+- O que aconteceu:
+
+  - Todas as árvores viraram cinzas, exceto:(4,5) ainda está queimando,(5,3) queimou e virou.
+  - (5,4) pegou fogo.
+  -Animal seguro em (5,5) última célula vazia.
+
+- ITERAÇÃO 7:
+
+<img src="imagem/semovento-it7.png" /> 
+
+- O que aconteceu:
+
+  - Todo o fogo se extinguiu, não há mais. 
+  - Floresta totalmente queimada.
+  - Animal sobreviveu em (5,5) (área vazia segura).
+  - Células (5,3) e (5,4) queimaram completamente.
 
 
+# 4. CONCLUSÃO
+
+- 1° Como o Fogo se Espalha:
+    - A simulação mostrou que o fogo avança rapidamente quando não tem obstáculos (tipo água ou áreas vazias). Se o vento tá ligado (COM_VENTO = true), o fogo vai mais para um lado só, como se fosse um vento real empurrando as chamas.
+
+   - Água é um "freio" natural: Quando o animal encontra água (4), não só ele fica seguro, como as áreas em volta viram árvores saudáveis de novo (1). Isso ajuda a controlar o incêndio.
+
+- 2° O Animal é Esperto, Mas Não Tanto:
+
+     - Ele tenta fugir pra lugares seguros (água > área vazia > árvore saudável), mas às vezes o fogo é rápido demais e ele fica encurralado. A "segunda chance" de movimento salvou ele algumas vezes, mas não sempre.
+     - Melhora: Seria legal se o animal "visse" o fogo vindo e calculasse rotas melhores.
+
+- 3° Reflexão final:
+
+A simulação mostrou que o fogo se espalha de forma implacável quando não encontra obstáculos, enquanto a água age como um freio natural, revitalizando áreas próximas. O animal, apesar de tentar fugir inteligentemente, muitas vezes é vítima do avanço rápido das chamas, revelando como pequenas variações (como vento ou disposição de recursos) impactam drasticamente o resultado. O código funcionou bem, mas ficou claro que há espaço para melhorias, como otimização de desempenho e estratégias mais sofisticadas de fuga. No fim, o trabalho foi um ótimo exercício para entender como sistemas complexos podem ser modelados e como pequenas mudanças geram grandes diferenças 
 
 
-   
-
-# 5  COMO EXECUTAR
+# 5.  COMO EXECUTAR
 
 Será necessario usar o make fornecido:
 
