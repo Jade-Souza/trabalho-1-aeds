@@ -231,7 +231,7 @@ O main() é o ponto de entrada do programa.
 
 - ITERAÇÃO 0:
 
-  <img src="imagem/INFLUENCIA DO VENTO - IT 0" />
+  <img src="imagem/comvento-it0.png" />
 
 
 
