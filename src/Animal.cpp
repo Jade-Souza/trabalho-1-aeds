@@ -107,6 +107,7 @@ void Animal::mover(std::vector<std::vector<int>>& matriz, int iteracao)
     {
         int nx = x + dx[i];
         int ny = y + dy[i];
+
         if (nx >= 0 && nx < static_cast<int>(matriz.size()) && 
             ny >= 0 && ny < static_cast<int>(matriz[0].size()))
         {
@@ -122,6 +123,7 @@ void Animal::mover(std::vector<std::vector<int>>& matriz, int iteracao)
 
     std::pair<int, int> melhorMovimento;
     int melhorPrioridade = -1;
+    
     for (int i = 0; i < 4; ++i)
     {
         int nx = x + dx[i];
