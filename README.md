@@ -26,7 +26,8 @@ representar a área que ocorrerá o incêndio. Cada pedacinho desse mapa pode es
 
 #  . METODOLOGIA
 
-### Animal.cpp
+### Animal.cpp  < a href "https://github.com/Jade-Souza/trabalho-1-aeds/blob/main/src/Animal.cpp">
+
   #### - encontrarPosicaoInicial()
    Essa método busca na matriz a posição inicial para o animal. Vou explicar como ela faz isso:
     
@@ -91,7 +92,8 @@ representar a área que ocorrerá o incêndio. Cada pedacinho desse mapa pode es
     - `(linha 75)` se a célula onde o animal quer olhar não for água (4) e se a condição for verdadeira vai transformar a célula em árvore saudável (1).
     - Depois de tudo, exibe uma mensagem na tela dizendo que o animal encontrou água e mostra onde `(linha 79)`.
 
-### Floresta.cpp
+
+### Floresta.cpp <a href "https://github.com/Jade-Souza/trabalho-1-aeds/blob/main/src/Floresta.cpp">
   #### - carregarDoArquivo()
 
 - 1°: O set `(linha 14 ate 20)` tem como objetivo alterar as células x e y, só será alterada se x e y forem válidos,para não dar erro de acessar posição inválida na matriz.
@@ -161,13 +163,13 @@ Essa método percorre toda a matriz da floresta para verificar se ainda existe a
 A método serve para mostrar o estado atual da floresta no console. Ela percorre cada linha da matriz e, para cada valor encontrado dentro da linha, imprime o valor seguido de um espaço usando std::cout. Depois que termina de imprimir todos os valores de uma linha, ela pula para a próxima linha com \n, para manter o formato correto da matriz na tela. Ao final da impressão completa da matriz, é dado mais um \n para deixar uma linha em branco, separando visualmente a matriz de outras possíveis informações que venham depois.
 
 
-###  Simulador.cpp
+###  Simulador.cpp <a href "https://github.com/Jade-Souza/trabalho-1-aeds/blob/main/src/Simulador.cpp">
 
-### - carregarConfiguracao()
+#### - carregarConfiguracao()
 
 Essa método é responsável por preparar tudo para iniciar a simulação. Primeiro `(linha 10)`, ela manda a floresta carregar o cenário a partir de um arquivo de entrada chamando floresta.carregarDoArquivo(arquivoEntrada). Em seguida `(linha 11)`, chama animal.encontrarPosicaoInicial, passando a matriz da floresta, para que o animal escolha onde começar. Por fim `(linha 12)`, ela cria ou limpa o arquivo output.dat usando std::ofstream com a opção std::ios::trunc, que apaga qualquer conteúdo anterior do arquivo, deixando-o vazio e pronto para armazenar novos resultados da simulação.
 
-### - executarSimulação()
+#### - executarSimulação()
 
 Essa método que é a responsável por rodar toda a simulação do fogo e do animal.
 
@@ -204,7 +206,7 @@ Essa método que é a responsável por rodar toda a simulação do fogo e do ani
 
 Esse método  é responsável por escrever no final do arquivo de saída um resumo da simulação. Primeiro `(linha 46)`, ela abre o arquivo especificado em modo de adição (append). Em seguida `(linha 48)`, escreve o título "RELATÓRIO FINAL" e, logo depois, registra o número total de iterações realizadas (iteracao) `(linha 49)`, a quantidade de passos que o animal deu (animal.getPassos()) `(linha 50)`, e o número de vezes que o animal encontrou água (animal.getEncontroAgua()) `(linha 51)`. Depois, verifica se o animal ainda está vivo `(linha 53)`: se sim, escreve que ele sobreviveu `(linha 53)`; se não `(linha 54)`, registra que o animal morreu e em qual iteração (animal.getItMorte())`(linha 54)`. Por fim, adiciona a linha "FIM..." para indicar o encerramento do relatório `(linha 56)`.
 
-### - main()
+### - main() <a href "https://github.com/Jade-Souza/trabalho-1-aeds/blob/main/src/main.cpp">
 
 O main() é o ponto de entrada do programa. 
 
@@ -223,6 +225,13 @@ O main() é o ponto de entrada do programa.
   - Depois disso, o programa retorna 1, indicando que terminou por causa de um problema.
 
 
+# 3 - RESULTADOS
+
+  ## ITERAÇÕES COM A INFLUÊNCIA DO VENTO:
+
+- ITERAÇÃO 0:
+
+  <img src="images/INFLUENCIA DO VENTO - IT 0" />
 
 
 
